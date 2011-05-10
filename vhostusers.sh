@@ -3,8 +3,8 @@
 
 #set -x
 
-ADMINMAIL=
-ADMINNAME=
+ADMINMAIL=m.schouman@connexx.nl
+ADMINNAME=m.schouman
 ADMINDOMAIN=
 
 #Add a user and a new homedirectory, the new place for the vhosts
@@ -40,11 +40,7 @@ GENPASS="$GENPASS${MATRIX:$(($RANDOM%${#MATRIX})):1}"
 let n+=1
 done
 
-sudo useradd $USERNAME -m -s /bin/bash -p $(openssl passwd -crypt $GENPASS)
-
-mkdir /home/$USERNAME/log
-mkdir /home/$USERNAME/www
-touch /home/$USERNAME/log/$USERNAME.access.log
+sudo useradd $USERNAME -m -s /bin/bash -p $(openssl passwd -crypt $GENPASS) mkdir /home/$USERNAME/log mkdir /home/$USERNAME/www touch /home/$USERNAME/log/$USERNAME.access.log
 touch /home/$USERNAME/log/$USERNAME.error.log
 
 chown -R $USERNAME:apache /home/$USERNAME/www chown -R $USERNAME:apache /home/$USERNAME/log chmod -R 755 /home/$USERNAME
@@ -127,7 +123,6 @@ then
 echo "User not valid"
         exit 1
 fi
-
 echo -n "also send an email to:"
 read EMAIL
 echo -n "domein:"
@@ -170,3 +165,4 @@ case "$1" in
         ;;
 esac
 exit 0
+
