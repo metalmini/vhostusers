@@ -3,8 +3,8 @@
 
 #set -x
 
-ADMINMAIL=
-ADMINNAME=
+ADMINMAIL=m.schouman@connexx.nl
+ADMINNAME=m.schouman
 ADMINDOMAIN=
 
 #Add a user and a new homedirectory, the new place for the vhosts
@@ -77,9 +77,9 @@ echo " "
 echo "MVG $ADMINNAME"
 echo " "
 
-#You can activate the mail option by removing the # next to the echo #This optionwil e-mail the account stuff to you and someone else if you fill in the mail adress at the beginning of the script # echo -e "Hi there, \n\nThis is your new username & password for your ftp account at $DOMEIN \n\nusername: $USERNAME \npasswd: $GENPASS \n\n$ADMINMAIL \n$ADMINDOMAIN \n\nIn case of lost password, send an e-mail to $ADMINMAIL\n
+#You can activate the mail option by removing the # next to the echo #This optionwil e-mail the account stuff to you and someone else if you fill in the mail adress at the beginning of the script 
 
-Just be nice & enjoy the net. \n\nDo not reply to this mail" | mail -s "$ADMINDOMAIN new passwd for user $USERNAME" "$ADMINMAIL,$EMAIL"
+echo -e "Hi there, \n\nThis is your new username & password for your ftp account at $DOMEIN \n\nusername: $USERNAME \npasswd: $GENPASS \n\n$ADMINMAIL \n$ADMINDOMAIN \n\nIn case of lost password, send an e-mail to $ADMINMAIL\n Just be nice & enjoy the net. \n\nDo not reply to this mail" | mail -s "$ADMINDOMAIN new passwd for user $USERNAME" "$ADMINMAIL,$EMAIL"
 
 }
 
