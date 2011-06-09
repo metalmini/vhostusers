@@ -3,8 +3,8 @@
 
 #set -x
 
-ADMINMAIL=m.schouman@connexx.nl
-ADMINNAME=m.schouman
+ADMINMAIL=
+ADMINNAME=
 ADMINDOMAIN=
 
 #Add a user and a new homedirectory, the new place for the vhosts
@@ -47,7 +47,9 @@ mkdir /home/$USERNAME/www
 touch /home/$USERNAME/log/$USERNAME.access.log
 touch /home/$USERNAME/log/$USERNAME.error.log
 
-chown -R $USERNAME:apache /home/$USERNAME/www chown -R $USERNAME:apache /home/$USERNAME/log chmod -R 755 /home/$USERNAME
+chown -R $USERNAME:apache /home/$USERNAME/www
+chown -R $USERNAME:apache /home/$USERNAME/log 
+chmod -R 755 /home/$USERNAME
 
 echo $USERNAME >> /etc/vsftpd/user_list
 echo $USERNAME >> /etc/vsftpd/chroot_list
